@@ -1,0 +1,75 @@
+\section{初等积分法}
+\subsection{恰当方程}
+考虑对称形式的一阶微分方程
+\begin{equation}\label{eq:symform}
+P(x,y)\D x+Q(x,y)\D y\,=\,0.
+\end{equation}\par
+如果存在一个可微函数$\varPhi(x,y)$，使得它的全微分为
+$$\D\varPhi(x,y)\,=\,P(x,y)\D x+Q(x,y)\D y,$$
+亦即它的偏导数为
+\begin{equation}\label{eq:phipartialdiff}
+\frac{\partial\varPhi}{\partial x}=P(x,y),\quad\frac{\partial\varPhi}{\partial y}=Q(x,y),
+\end{equation}
+则称\eqref{eq:symform}为{\heiti 恰当方程}或{\heiti 全微分方程}。因此，当方程\eqref{eq:symform}为恰当方程时，可将它改写为全微分的形式
+\begin{equation*}
+\D\varPhi(x,y)\,=\,P(x,y)\D x+Q(x,y)\D y\,=\,0.
+\end{equation*}
+从而
+\begin{equation*}
+\varPhi(x,y)\,=\,C
+\end{equation*}
+就是方程\ref{eq:symform}的一个通积分。
+\begin{theo}\label{theo:approeq}% [微分方程是恰当方程的充要条件]
+设函数$P(x,y)$和$Q(x,y)$在区域
+$$R:\quad\quad \alpha<x<\beta,\quad\gamma<y<\delta$$
+
+上连续，且有连续的一阶偏导数$\frac{\partial P}{\partial y}$与$\frac{\partial Q}{\partial x}$，则微分方程\eqref{eq:symform}是恰当方程的充要条件为恒等式
+\begin{equation}\label{eq:approeq:ioi}
+\frac{\partial P}{\partial y}(x,y)\equiv\frac{\partial Q}{\partial x}(x,y)
+\end{equation}
+在$R$内成立，并且当\eqref{eq:approeq:ioi}成立时，方程\eqref{eq:symform}的通积分为
+$$\int_{x_0}^xP(x,y)\D x+\int_{y_0}^yQ(x_0,y)\D y\,=\,C,$$
+或者
+$$\int_{x_0}^xP(x,y_0)\D x+\int_{y_0}^yQ(x,y)\D y\,=\,C,$$
+其中$(x_0,y_0)$是$R$中任意取定的一点。
+\end{theo}\par
+\begin{proof}
+先证必要性。设方程\eqref{eq:symform}是恰当的，则存在函数$\varPhi(x,y)$，满足
+\begin{equation}\label{proof:theo:approeq:1}
+\frac{\partial\varPhi}{\partial x}=P(x,y),\quad\frac{\partial\varPhi}{\partial y}=Q(x,y).
+\end{equation}
+然后，我们在上面的第一式和第二式中，分别对$y$和$x$求偏导数，就可得到
+\begin{equation}\label{proof:theo:approeq:2}
+\frac{\partial P}{\partial y}=\frac{\partial^2\varPhi}{\partial y\partial x},\quad\frac{\partial Q}{\partial x}=\frac{\partial^2\varPhi}{\partial x\partial y}.
+\end{equation}
+由$\frac{\partial P}{\partial y}$和$\frac{\partial Q}{\partial x}$的连续性假设推知混合偏导数$\frac{\partial^2\varPhi}{\partial y\partial x}$和$\frac{\partial^2\varPhi}{\partial x\partial y}$是连续的，从而$\frac{\partial^2\varPhi}{\partial y\partial x}\equiv\frac{\partial^2\varPhi}{\partial x\partial y}$，因此由\eqref{proof:theo:approeq:2}式推得\eqref{eq:approeq:ioi}式。\par
+再证充分性。设$P(x,y)$和$Q(x,y)$满足条件\eqref{eq:approeq:ioi}，我们来构造可微函数$\varPhi(x,y)$，使\eqref{proof:theo:approeq:1}式成立。为了使\eqref{proof:theo:approeq:1}的第一式成立，我们可取
+% 从这里定义\partialD，以前内容等有时间（Never）再修改。
+\begin{equation}\label{proof:theo:approeq:3}
+\varPhi(x,y)\,=\,\int_{x_0}^{x}P(x,y)\D x+\psi(y),
+\end{equation}
+其中函数$\psi(y)$待定，以使函数$\varPhi(x,y)$适合\eqref{proof:theo:approeq:1}的第二式。因此，由\eqref{proof:theo:approeq:3}得到
+$$\partialD{\varPhi}{y}\,=\,\partialD{}{y}\int_{x_0}^{x}P(x,y)\D x+\psi'(y)\,=\,\int_{x_0}^x\partialD{}{y}P(x,y)\D x+\psi'(y).$$
+再利用条件\eqref{eq:approeq:ioi}得到
+$$\partialD{\varPhi}{y}\,=\,\int_{x_0}^x\partialD{}{x}Q(x,y)\D x+\psi'(y)\,=\,Q(x,y)-Q(x_0,y)+\psi'(y).$$
+由此可见，为了使\eqref{proof:theo:approeq:1}的第二式成立，只要令$\psi'(y)=Q(x_0,y)$，亦即只要取$$\psi(y)=\int_{y_0}^yQ(x_0,y)\D y$$即可。这样，就得到了满足\eqref{proof:theo:approeq:1}的一个函数$$\varPhi(x,y)\,=\,\int_{x_0}^xP(x,y)\D x+\int_{y_0}^yQ(x_0,y)\D y.$$\par
+如果在构造$\varPhi(x,y)$时，先考虑使\eqref{proof:theo:approeq:1}的第二式成立，则可用同样的方法，得到满足\eqref{proof:theo:approeq:1}的另一函数。因此，我们得到通积分如定理\ref{theo:approeq}。
+\end{proof}
+
+\subsection{变量分离的方程}
+如果微分方程\eqref{eq:symform}中的函数$P(x,y)$和$Q(x,y)$均可分别表示为$x$的函数与$y$的函数的乘积，则称\eqref{eq:symform}为{\heiti 变量分离的方程}。因此，只要令$$P(x,y)=X(x)Y_1(y),\quad Q(x,y)=X_1(x)Y(y),$$变量分离的方程可以写成如下的形式：
+\begin{equation}\label{eq:varsep}
+X(x)Y_1(y)\D x+X_1(x)Y(y)\D y\,=\,0.
+\end{equation}\par
+如果以因子$X_1(x)Y_1(y)$去除\eqref{eq:varsep}式的两侧，就得到$$\frac{X(x)}{X_1}\D x+\frac{Y(y)}{Y_1(y)}\D y\,=\,0.$$
+此方程$x$与$y$互相分离，因此它的通积分为
+\begin{equation}\label{eq:varsep:res}
+\int\frac{X(x)}{X_1(x)}\D x+\int\frac{y(y)}{Y_1(y)}\D y\,=\,C.
+\end{equation}
+变量分离的方程\eqref{eq:varsep}的通积分由\eqref{eq:varsep:res}给出（要进行必要的不定积分运算）；还要补上如下形式的特解（如果它们不在上述通积分之内的话）：
+\begin{equation*}
+    \begin{cases}
+        \quad x=a_i\,(i=1,2,\cdots) & \text{其中$a_i$是$X_1(x)=0$的根；} \\
+        \quad y=b_j\,(j=1,2,\cdots) & \text{其中$b_j$是$Y_1(y)=0$的根。}
+    \end{cases}
+\end{equation*}
