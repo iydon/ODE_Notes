@@ -73,3 +73,65 @@ X(x)Y_1(y)\D x+X_1(x)Y(y)\D y\,=\,0.
         \quad y=b_j\,(j=1,2,\cdots) & \text{其中$b_j$是$Y_1(y)=0$的根。}
     \end{cases}
 \end{equation*}
+
+\subsection{一阶线性方程}
+本节讨论{\heiti 一阶线性}方程
+\begin{equation}\label{eq:firstlinearode}
+\frac{\D y}{\D x}+p(x)y\,=\,q(x).
+\end{equation}
+其中函数$p(x)$和$q(x)$在区间$I=(a,b)$上连续。当$q(x)\equiv0$时方程\eqref{eq:firstlinearode}成为
+\begin{equation}\label{eq:firstlinearode:homo}
+\frac{\D y}{\D x}+p(x)y\,=\,0.
+\end{equation}
+当$q(x)$不恒等于零时，称方程\eqref{eq:firstlinearode}为{\heiti 非齐次}线性方程；而称方程\eqref{eq:firstlinearode:homo}为（相应的）{\heiti 齐次}线性方程。\par
+我们得到方程\eqref{eq:firstlinearode:homo}的解
+\begin{equation}\label{eq:firstlinearode:homo:sol}
+y\,=\,Ce^{-\int p(x)\D x}.
+\end{equation}
+现在要求解非齐次线性方程\eqref{eq:firstlinearode}。我们可把它改写为如下的对称形式：
+\begin{equation}\label{eq:firstlinearode:sol}
+\D y+p(x)y\D x\,=\,q(x)\D x.
+\end{equation}
+一般而言，\eqref{eq:firstlinearode:sol}不是恰当方程，但以因子$\mu(x)=e^{\int p(x)\D x}$乘\eqref{eq:firstlinearode:sol}两侧（注意$\mu(x)\neq 0$），得到方程
+$$e^{\int p(x)\D x}\D y+e^{\int p(x)\D x}p(x)y\D y\,=\,e^{\int p(x)\D x}q(x)\D x,$$
+它是全微分的形式
+$$\D(e^{\int p(x)\D x}y)\,=\,\D\int q(x)e^{\int p(x)\D x}\D x.$$
+由此可直接积分，得到通积分
+$$e^{\int p(x)\D x}y\,=\,\int q(x)e^{\int p(x)\D x}\D x+C.$$
+这样，就求出了方程\eqref{eq:firstlinearode:sol}的通解
+\begin{equation}\label{eq:firstlinearode:sol2}
+y\,=\,e^{-\int p(x)\D x}\Bigg(C+\int q(x)e^{\int p(x)\D x}\D x\Bigg),
+\end{equation}\par
+上述方法叫做{\heiti 积分因子法}，这是因为我们用因子$\mu(x)$乘微分方程\eqref{eq:firstlinearode:sol}的两侧后，它就转化为一个全微分方程，从而获得它的积分。
+利用这种形式，容易得到初值问题
+\begin{equation}\label{eq:firstlinearode:initval}
+\frac{\D y}{\D x}+p(x)y=q(x),\quad y(x_0)=y_0
+\end{equation}
+的解为
+\begin{equation}\label{eq:firstlinearode:initval:sol}
+y\,=\,y_0e^{-\int_{x_0}^xp(t)\D t}+\int_{x_0}^xq(s)e^{-\int_s^xp(t)\D t}\D s,
+\end{equation}
+其中$p(x)$和$q(x)$在区间$I$上连续。
+
+\subsection{初等变换法}
+\subsubsection{齐次方程}
+如果微分方程\eqref{eq:symform}中的函数$P(x,y)$和$Q(x,y)$都是$x$和$y$的同次（例如$m$次）齐次函数，即：
+\begin{equation}\label{eq:firstlinearode:varsubs}
+P(tx,ty)=t^mP(x,y),\quad Q(tx,ty)=t^mQ(x,y),
+\end{equation}
+则称方程\eqref{eq:symform}为{\heiti 齐次方程}（注意这与上节定义的齐次线性方程不是一回事）。对于齐次方程\eqref{eq:symform}，标准的变量替换是$y=ux$，其中$u$为新的未知函数，$x$认仍为自变量。从关系\eqref{eq:firstlinearode:varsubs}易知
+\begin{equation*}
+    \begin{cases}
+        \quad P(x,y)=P(x,xu)=x^mP(1,u), &\\
+        \quad Q(x,y)=Q(x,xu)=x^mQ(1,u), &
+    \end{cases}
+\end{equation*}
+因此，把变换代入方程\eqref{eq:symform}，就得
+$$x^m\left[P(1,u)+uQ(1,u)\right]\D x+x^{m+1}Q(1,u)\D u\,=\,0,$$
+这是一个变量分离的方程。\par
+{\heiti 【附注】\quad}易知方程\eqref{eq:symform}为齐次方程的一个等价定义是，它可以化为如下的形式：
+$$\frac{\D y}{\D x}\,=\,\varPhi(\frac yx).$$
+
+\subsubsection{伯努利方程}
+
+\subsubsection{里卡蒂方程}
