@@ -133,5 +133,118 @@ $$x^m\left[P(1,u)+uQ(1,u)\right]\D x+x^{m+1}Q(1,u)\D u\,=\,0,$$
 $$\frac{\D y}{\D x}\,=\,\varPhi(\frac yx).$$
 
 \subsubsection{伯努利方程}
+\begin{defn}\label{def:eq:Bernoulli}
+形如
+\begin{equation}\label{eq:Bernoulli}
+\diff{y}{x}+p(x)y\,=\,q(x)y^n
+\end{equation}
+的方程称为伯努利方程，其中$n$为常数，而且$n\neq 0$和$1$。
+\end{defn}\par
+以$(1-n)y^{-n}$乘方程\eqref{eq:Bernoulli}两边，即得
+$$(1-n)y^{-n}\diff{y}{x}+(1-n)y^{1-n}p(x)\,=\,(1-n)q(x).$$
+然后令$z=y^{1-n}$，就有
+$$\diff{z}{x}+(1-n)p(x)z\,=\,(1-n)q(x),$$
+这是关于未知函数$z$的一阶线性方程。
 
 \subsubsection{里卡蒂方程}
+\begin{defn}\label{def:eq:Riccati}
+假如一阶微分方程\eqref{eq:firstode}的右端函数$f(x,y)$是一个关于$y$的二次多项式，则称此方程为二次方程；它可写成如下形式：
+\begin{equation}\label{eq:Riccati}
+\diff{y}{x}\,=\,p(x)y^2+q(x)y+r(x),
+\end{equation}
+其中函数$p(x),q(x),r(x)$在区间$I$上连续，而且$p(x)$不恒为零。方程\eqref{eq:Riccati}通畅又叫做里卡蒂（Riccati, 1676-1754）方程。
+\end{defn}
+
+\begin{theo}\label{theo:Riccati:sol}
+设已知里卡蒂方程\eqref{eq:Riccati}的一个特解$y=\varphi_1(x)$，则可用积分法求得它的通解。
+\end{theo}
+\begin{proof}
+对方程\eqref{eq:Riccati}作变换$y=u+\varphi_1(x)$，其中$u$是新的未知函数，代入方程\eqref{eq:Riccati}，得到
+$$\diff{u}{x}+\diff{\varphi_1}{x}\,=\,p(x)\left[u^2+2\varphi_1(x)u+\varphi_1^2(x)\right]+q(x)\left[u+\varphi_1(x)\right]+r(x),$$
+由于$y=\varphi_1(x)$是\eqref{eq:Riccati}的解，从上式消去相关的项以后，就有
+$$\diff{u}{x}\,=\,\left[2p(x)\varphi_1(x)+q(x)\right]u+p(x)u^2,$$
+这是一个伯努利方程。因此，由前面对方程\eqref{eq:Bernoulli}的讨论可知，此方程可以用积分法求出通解。
+\end{proof}
+
+\subsection{积分因子法}
+对于一般的方程\eqref{eq:symform}，设法寻找一个可微的非零函数$\mu=\mu(x,y)$，舍得用它乘方程\eqref{eq:symform}后，所得方程
+\begin{equation}\label{eq:intfactormethod:1}
+\mu(x,y)P(x,y)\D x+\mu(x,y)Q(x,y)\D y\,=\,0
+\end{equation}
+成为恰当方程，亦即
+\begin{equation}\label{eq:intfactormethod:2}
+\partialD{(\mu P)}{y}\,=\,\partialD{(\mu Q)}{x}.
+\end{equation}
+这时，函数$\mu=\mu(x,y)$叫做方程\eqref{eq:symform}的一个{\heiti 积分因子}。\par
+事实上，寻求积分因子$\mu=\mu(x,y)$，就是求解偏微分方程\eqref{eq:intfactormethod:2}，或等价地，求解一阶偏微分方程
+\begin{equation}\label{eq:intfactormethod:3}
+P\partialD{\mu}{y}-Q\partialD{\mu}{x}\,=\,\left(\partialD{Q}{x}-\partialD{P}{y}\right)\mu,
+\end{equation}\par
+对某些特殊情形，利用\eqref{eq:intfactormethod:3}去寻求\eqref{eq:symform}的积分因子是可行的。例如，假设方程\eqref{eq:symform}有一个只与$x$有关的积分因子$\mu=\mu(x)$，则由充要条件\eqref{eq:intfactormethod:3}推出
+$$Q\diff{\mu}{x}\,=\,\left(\partialD{P}{y}-\partialD{Q}{x}\right)\mu,$$
+或者
+\begin{equation}\label{eq:intfactormethod:4}
+\frac{1}{\mu(x)}\diff{\mu(x)}{x}\,=\,\frac{1}{Q(x,y)}\left(\partialD{P(x,y)}{y}-\partialD{Q(x,y)}{x}\right).
+\end{equation}
+由于上式左端只与$x$有关，所以右端亦然。因此，微分方程\eqref{eq:symform}有一个只依赖于$x$的积分因子的必要条件是：表达式
+\begin{equation}\label{eq:intfactormethod:5}
+\frac{1}{Q(x,y)}\left(\partialD{P(x,y)}{y}-\partialD{Q(x,y)}{x}\right).
+\end{equation}
+只依赖于$x$，而与$y$无关。\par
+反之，设表达式\eqref{eq:intfactormethod:5}只依赖于$x$，记为$G(x)$。考虑到\eqref{eq:intfactormethod:4}式，我们令
+$$\frac{1}{\mu(x)}\diff{\mu(x)}{x}\,=\,G(x),$$
+由此得到
+\begin{equation}\label{eq:intfactormethod:6}
+\mu(x)\,=\,e^{\int G(x)\D x},
+\end{equation}
+容易验证它就是\eqref{eq:symform}的一个积分因子。
+\begin{theo}\label{theo:intfactormethod:1}
+微分方程\eqref{eq:symform}有一个只依赖于$x$的积分因子的充要条件是：表达式\eqref{eq:intfactormethod:5}只依赖于$x$，而与$y$无关；而且若把表达式\eqref{eq:intfactormethod:5}记为$G(x)$，则由\eqref{eq:intfactormethod:6}所示的函数$\mu(x)$是方程\eqref{eq:symform}的一个积分因子。
+\end{theo}
+\begin{theo}\label{theo:intfactormethod:2}
+若$\mu=\mu(x,y)$是方程\eqref{eq:symform}的一个积分因子，使得
+$$\mu P(x,y)\D x+\mu Q(x,y)\D y\,=\,\D\varPhi(x,y),$$
+则$\mu(x,y)g(\varPhi(x,y))$也是\eqref{eq:symform}的一个积分因子，其中$g(\cdot)$是任意可微的（非零）函数。
+\end{theo}
+
+\subsection{应用举例}
+\begin{example}
+求已知曲线族的等角轨线。\par
+假设在$(x,y)$平面上由方程
+\begin{equation}\label{eq:isotrajectory:1}
+\varPhi(x,y,C)\,=\,0
+\end{equation}
+给出一个以$C$为参数的曲线族。我们设法求出另一个曲线族
+\begin{equation}\label{eq:isotrajectory:2}
+\varPsi(x,y,K)\,=\,0,
+\end{equation}
+其中$K$为参数，使得族\eqref{eq:isotrajectory:2}中的任一条曲线与族\eqref{eq:isotrajectory:1}中的每一条曲线相交成定角$\alpha$（$-\frac{\pi}{2}<\alpha\leq\frac{\pi}{2}$，以逆时针方向为正）。称这样的曲线族\eqref{eq:isotrajectory:2}为已知曲线族\eqref{eq:isotrajectory:1}的{\heiti 等角轨线族}。特别，当$\alpha=\frac{\pi}{2}$时，称曲线族\eqref{eq:isotrajectory:2}为\eqref{eq:isotrajectory:1}的正交轨线族。
+\end{example}\par
+假设$\varPhi_C'\neq 0$，则可由联立方程
+\begin{equation}\label{eq:isotrajectory:3}
+\varPhi(x,y,C)=0,\quad \varPhi_x'(x,y,C)\D x+\varPhi_y'(x,y,C)\D y=0
+\end{equation}
+消去$C$，得到曲线族\eqref{eq:isotrajectory:1}所满足的微分方程
+\begin{equation}\label{eq:isotrajectory:4}
+\diff{y}{x}\,=\,H(x,y),
+\end{equation}
+其中
+$$H(x,y)\,=\,-\frac{\varPhi_x'(x,y,C(x,y))}{\varPhi_y'(x,y,C(x,y))},$$
+这里$C=C(x,y)$是由$\varPhi(x,y,C)=0$决定的函数。\par
+如果我们把方程\eqref{eq:isotrajectory:4}在点$(x,y)$的线素斜率记为$y_1'$，而把与它相交成$\alpha$角的线素斜率记为$y'$。则当$\alpha\neq\frac{\pi}{2}$时，有
+$$\tan\alpha\,=\,\frac{y'-y_1'}{1+y'y_1'},$$
+即
+$$y_1'\,=\,\frac{y'-\tan\alpha}{y'\tan\alpha+1};$$
+因为$y_1'=H(x,y)$，所以等角轨线的微分方程为
+$$\frac{y'-\tan\alpha}{y'\tan\alpha+1}\,=\,H(x,y),$$
+亦即
+\begin{equation}\label{eq:isotrajectory:5}
+\diff{y}{x}\,=\,\frac{H(x,y)+\tan\alpha}{1-H(x,y)\tan\alpha}
+\end{equation}\par
+而当$\alpha=\frac{\pi}{2}$时，就有
+$$y'\,=\,-\frac{1}{y_1'},$$
+亦即所求正交轨线的微分方程为
+\begin{equation}\label{eq:isotrajectory:6}
+\diff{y}{x}\,=\,-\frac{1}{H(x,y)}.
+\end{equation}
+求解微分方程\eqref{eq:isotrajectory:5}（或\eqref{eq:isotrajectory:6}），就可以得到\eqref{eq:isotrajectory:1}的等角轨线族（或正交轨线族）\eqref{eq:isotrajectory:2}。
