@@ -29,6 +29,40 @@
 \makeatletter
 \@addtoreset{equation}{section}
 \makeatother
+% section depth
+% \setcounter{tocdepth}{2}
+% MATLAB
+\lstnewenvironment{matlab} {%
+    \lstset{language=Matlab,basicstyle=\tiny\ttfamily,breaklines=true,%
+        escapeinside = ``,tabsize=2,
+        showstringspaces=false，
+        aboveskip=0pt,belowskip=0pt,
+        frame=single,numbers=left}}{}
+% command line
+\usetikzlibrary{calc}
+\definecolor{DarkBlue}{rgb}{.11,.23,.60}
+\mdfdefinestyle{commandline}%
+{leftmargin=5pt, rightmargin=10pt,innerleftmargin=15pt,
+	middlelinecolor=DarkBlue,
+	middlelinewidth=2pt,
+	frametitlerule=false,
+	backgroundcolor=white,%black!10!white,
+    roundcorner=3pt,
+	frametitle={Command Window},
+	frametitlefont={\normalfont\sffamily\color{white}\hspace{-1em}},
+	frametitlebackgroundcolor=DarkBlue,
+	singleextra={\draw[black!10,line width=12pt]
+		($(O)+(7pt,1pt)$) -- ($(O|-P)+(7pt,-\mdfframetitleboxtotalheight)-(0,1pt)$);
+		\node[inner sep=0pt,color=black]at ($(O|-P)+(7pt,-25pt)$)%
+		{$\scriptstyle f\!x$}; },
+	nobreak,
+}
+\lstnewenvironment{script} {%
+	\lstset{language=Matlab,basicstyle=\tiny\ttfamily,breaklines=true,%
+		escapeinside = ``,tabsize=2,
+        showstringspaces=falsei，
+		aboveskip=0pt,belowskip=0pt}}{}
+\surroundwithmdframed[style=commandline]{script}
 % example
 \usepackage{environ}
 \usepackage{xparse}
