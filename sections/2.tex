@@ -132,6 +132,30 @@ $$x^m\left[P(1,u)+uQ(1,u)\right]\D x+x^{m+1}Q(1,u)\D u\,=\,0,$$
 {\heiti 【附注】\quad}易知方程\eqref{eq:symform}为齐次方程的一个等价定义是，它可以化为如下的形式：
 $$\frac{\D y}{\D x}\,=\,\varPhi(\frac yx).$$
 
+\begin{example}
+讨论形如$$\frac{\D y}{\D x}\,=\,f\left(\frac{ax+by+c}{mx+ny+l}\right)$$的方程的求解法。这里设$a,b,c,m,n,l$为常数。
+\end{example}\par
+注意，当$c=l=0$时，它是齐次方程，因此可用变化$u=\sfrac{y}{x}$求解。当$c$和$l$不全为零时，可分如下两种情形讨论：\par
+(1)\quad $\Delta=an-bm\neq 0.$\par
+此时可选常数$\alpha$和$\beta$，使得
+$$\begin{cases}
+\quad a\alpha+b\beta+c\,=\,0, &\\
+\quad m\alpha+n\beta+l\,=\,0.
+\end{cases}$$
+然后取自变量和未知函数的（平移）变换
+$$x=\xi+\alpha,\quad y=\eta+\beta,$$
+% 从这里定义\diff，以前内容等有时间（Never）再修改。
+则原方程就化为$\xi$与$\eta$的方程
+$$\diff{\eta}{\xi}\,=\,f\left(\frac{a\xi+b\eta}{m\xi+n\eta}\right),$$
+这已是齐次方程。因此，只要令$u=\sfrac{\eta}{\xi}$，即可把它化成变量分离的方程。\par
+(2)\quad $\Delta=an-bm=0.$\par
+此时有$m/a=n/b=\lambda$。因此，原方程化为
+$$\diff{y}{x}\,=\,f\left(\frac{ax+by+c}{\lambda(ax+by)+l}\right).$$
+再令$v=ax+by$为新的未知函数，$x$仍为自变量，则上述方程可化为
+$$
+\diff{v}{x}\,=\,a+bf\left(\frac{v+c}{\lambda v+l}\right),$$
+它是一个变量分离的方程。
+
 \subsubsection{伯努利方程}
 \begin{defn}\label{def:eq:Bernoulli}
 形如
