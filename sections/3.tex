@@ -15,3 +15,65 @@ $$R:\quad\quad |x-x_0|\leq a,\quad |y-y_0|\leq b$$
 内连续，而且对$y$满足李氏条件。则$(E)$在区间$I=[x_0-h,x_0+h]$上有切只有一个解，其中常数
 $$h=\min\left\{a,\frac{b}{M}\right\},\quad M>\max_{(x,y)\in R}|f(x,y)|.$$
 \end{theo}
+\begin{proof}
+\begin{enumerate}[(1)]
+\item\label{proof:theo:picard_theorem:1} 初值问题$(E)$等价于积分方程方程\eqref{proof:theo:picard_theorem:0}。
+\item\label{proof:theo:picard_theorem:2} 用逐次迭代法构造皮卡序列。
+\item\label{proof:theo:picard_theorem:3} 皮卡序列在区间$I$上一致收敛到积分方程的解。
+\item\label{proof:theo:picard_theorem:4} 证明唯一性。
+\end{enumerate}
+
+步骤\eqref{proof:theo:picard_theorem:1}积分方程为
+\begin{equation}\label{proof:theo:picard_theorem:0}
+y\,=\,y_0+\int_{x_0}^xf(x,y)\D x.
+\end{equation}\par
+步骤\eqref{proof:theo:picard_theorem:2}使用逐次迭代法构造皮卡序列
+\begin{equation}\label{proof:theo:picard_theorem:series}
+y_{n+1}(x)\,=\,y_0+\int_{x_0}^xf(x,y_n(x))\D x\quad (x\in I)
+\end{equation}
+其中$n=0,1,2,\cdots$，$y_0(x)=y_0$。
+由归纳法不难证明：由\eqref{proof:theo:picard_theorem:series}给出的皮卡序列$y=y_n(x)$在$I$上是连续的，而且满足不等式
+$$|y_n(x)-y_0|\leq\left|\int_{x_0}^x|f(x,y_n(x))|\D x\right|\leq M|x-x_0|\quad (n=0,1,2,\cdots).$$\par
+步骤\eqref{proof:theo:picard_theorem:3}皮卡序列$y_n(x)$的收敛性等价于级数
+$$\sum_{n=1}^\infty[y_{n+1}(x)-y_n(x)]$$
+的收敛性，利用李氏条件和归纳法假设可以得到\footnote{开学时自行补上步骤\eqref{proof:theo:picard_theorem:3}与步骤\eqref{proof:theo:picard_theorem:4}。}。
+\end{proof}
+
+\begin{theo}\label{theo:osgood}
+设函数$f(x,y)$在区域$G$内连续按，而且满足不等式
+$$|f(x,y_1)-f(x,y_2)|\leq F(|y_1-y_2|),$$
+其中$F(r)>0$是$r>0$的连续函数，而且瑕积分
+$$\int_0^{r_1}\frac{\D r}{F(r)}\,=\,\infty$$
+（$r_1>0$为常数）。则称$f(x,y)$在$G$内对$y$满足{\heiti Osgood条件}。\par
+此时微分方程$\diff{y}{x}=f(x,y)$在$G$内经过每一点的解都是唯一的。
+\end{theo}
+\begin{proof}
+假设不然。则在$G$内可以找到一点$(x_0,y_0)$使得微分方程有两个解$y=y_1(x)$和$$y=y_2(x)$$都经过$(x_0,y_0)$，而且至少存在一个值$x_1\neq x_0$，使得$y_1(x_1)\neq y_2(x_1)$。不妨设$x_1>x_0$，且$y_z(x_1)>y_2(x_1)$。令
+$$\overline{x}\,=\,\sup_{x\in[x_0,x_1]}\{x:y_1(x)=y_2(x)\},$$
+则显然有$x_0\leq\overline{x}<x_1$，而且
+$$r(x)\overset{d}{=}y_1(x)-y_2(x)>0,\quad\overline{x}<x\leq x_1$$
+和$r(\overline{x})=0$。因此，我们有
+\begin{align}
+r'(x) &= y_1'(x)-y_2'(x)=f(x,y_1(x))-f(x,y_2(x)) \\
+&\leq F(|y_1(x)-y_2(x)|)=F(r(x)),
+\end{align}
+亦即
+$$\frac{\D r(x)}{F(r(x))}\leq\D x\quad(\overline{x}<x\leq x_1).$$
+从$\overline{x}$到$x_1$积分上式，得到
+$$\int_0^{r_1}\frac{\D r(x)}{F(r(x))}\leq x_1-\overline{x},$$
+其中$r_1=r(x_1)>0$。但这不等式的左端是$\infty$，而右端是一个有限的数。因此，这是一个矛盾，它证明了定理\ref{theo:osgood}。
+\end{proof}
+
+\subsection{佩亚诺存在定理}
+\subsubsection{欧拉折线}
+TODO
+\subsubsection{Ascoli引理}
+TODO
+\subsubsection{培亚诺存在定理}
+TODO
+
+\subsection{解的延伸}
+TODO
+
+\subsection{比较定理及其应用}
+TODO
