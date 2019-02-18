@@ -1,107 +1,114 @@
 \section{基本概念}
 \subsection{微分方程及其解的定义}
 \begin{defn}[常微分方程]\label{def:ode}
-凡是联系自变量$x$，与这个自变量的未知函数$y=y(x)$，和它的导数$y'=y'(x)$以及直到n阶导数$y^{(n)}=y^{(n)}(x)$在内的方程
-\begin{equation}\label{eq:ode}
-F(x,y,y',\cdots,y^{(n)})\,=\,0
-\end{equation}
-叫做{\heiti 常微分方程}，其中导数实际出现的最高阶数$n$叫做常微分方程\eqref{eq:ode}的{\heiti 阶}。
+    凡是联系自变量$x$，与这个自变量的未知函数$y=y(x)$，和它的导数$y'=y'(x)$以及直到n阶导数$y^{(n)}=y^{(n)}(x)$在内的方程
+    \begin{equation}\label{eq:ode}
+        F(x,y,y',\ldots,y^{(n)})=0
+    \end{equation}
+    叫做\emphz{常微分方程}，其中导数实际出现的最高阶数$n$叫做常微分方程\eqref{eq:ode}的\emphz{阶}。
 \end{defn}
 
-在常微分方程\eqref{eq:ode}中如果右端函数$F$对未知函数y和它的各阶导数$y',\cdots,y^{(n)}$的全体而言是一次的，则称它是{\heiti 线性}常微分方程。否则称它为{\heiti 非线性}常微分方程。\par
-我们在定义\ref{def:ode}中给微分方程\eqref{eq:ode}冠以“常”字，指的是未知函数是一元函数。如果未知函数是多元函数，那么在微分方程中将出现偏导数，这种方程自然叫做{\heiti 偏微分方程}。
+在常微分方程\eqref{eq:ode}中如果右端函数$F$对未知函数$y$和它的各阶导数$y',\ldots,y^{(n)}$的全体而言是一次的，则称它是\emphz{线性}常微分方程。否则称它为\emphz{非线性}常微分方程。
+
+我们在定义\ref{def:ode}中给微分方程\eqref{eq:ode}冠以``常''字，指的是未知函数是一元函数。如果未知函数是多元函数，那么在微分方程中将出现偏导数，这种方程自然叫做\emphz{偏微分方程}。
 
 \begin{defn}[常微分方程的解]\label{def:odesol}
-设函数$y=\varphi(x)$在区间$J$上连续，且有直到$n$阶的导数。如果把$y=\varphi(x)$及其相应的各阶导数代入方程\eqref{eq:ode}，得到关于$x$的恒等式，即
-\begin{equation}\label{eq:odesol}
-F(x,\varphi(x),\varphi'(x),\cdots,\varphi^{(n)}(x))\,=\,0
-\end{equation}
-对一切$x\in J$都成立，则称$y=\varphi(x)$为微分方程\eqref{eq:ode}在区间$J$上的一个{\heiti 解}。
+    设函数$y=\varphi(x)$在区间$J$上连续，且有直到$n$阶的导数。如果把$y=\varphi(x)$及其相应的各阶导数代入方程\eqref{eq:ode}，得到关于$x$的恒等式，即
+    \begin{equation}\label{eq:odesol}
+        F(x,\varphi(x),\varphi'(x),\ldots,\varphi^{(n)}(x))=0
+    \end{equation}
+    对一切$x\in J$都成立，则称$y=\varphi(x)$为微分方程\eqref{eq:ode}在区间$J$上的一个\emphz{解}。
 \end{defn}
+
 \begin{defn}[常微分方程的通解与特解]\label{def:odesol:genspec}
-设$n$阶微分方程\eqref{eq:ode}的解
-\begin{equation}\label{eq:odesol:genspec}
-y\,=\,\varphi(x,C_1,C_2,\cdots,C_n)
-\end{equation}
-包含$n$个{\heiti 独立的}任意常数$C_1,C_2,\cdots,C_n$，则称它为{\heiti 通解}，这里所说$n$个任意常数$C_1,C_2,\cdots,C_n$是独立的，其含义是$Jacobi$行列式
-$$
-\frac{D\left[\varphi,\varphi',\cdots,\varphi^{(n-1)}\right]}{D\left[C_1,C_2,\cdots,C_n\right]}\,\overset{d}{=}\,
-\def\tmp#1#2{\dfrac{\partial #1}{\partial C_{#2}}}
-\left|
-\begin{matrix}
-\tmp{\varphi}{1} & \tmp{\varphi}{2} & \cdots & \tmp{\varphi}{n} \\
-\tmp{\varphi'}{1} & \tmp{\varphi'}{2} & \cdots & \tmp{\varphi'}{n} \\
-\vdots & \vdots & \ddots & \vdots \\
-\tmp{\varphi^{(n-1)}}{1} & \tmp{\varphi^{(n-1)}}{2} & \cdots & \tmp{\varphi^{(n-1)}}{n} \\
-\end{matrix}
-\right|
-\let\tmp\relax
-$$
-不等于0，其中
-\begin{equation*}
-    \begin{cases}
-    \quad\varphi\,=\,\varphi(x,C_1,C_2,\cdots,C_n), & \\
-    \quad\varphi'\,=\,\varphi'(x,C_1,C_2,\cdots,C_n), & \\
-    \quad\cdots\cdots\cdots\cdots & \\
-    \quad\varphi^{(n-1)}\,=\,\varphi^{(n-1)}(x,C_1,C_2,\cdots,C_n). &
-    \end{cases}
-\end{equation*}\par
-如果微分方程\eqref{eq:ode}的解$y=\varphi(x)$不包含任意常数，则称它为{\heiti 特解}。显然，当任意常数一旦确定之后，通解也就变成了特解。
+    设$n$阶微分方程\eqref{eq:ode}的解
+    \begin{equation}\label{eq:odesol:genspec}
+        y=\varphi(x,C_1,C_2,\ldots,C_n)
+    \end{equation}
+    包含$n$个\emphz{独立的}任意常数$C_1,C_2,\ldots,C_n$，则称它为\emphz{通解}，这里所说$n$个任意常数$C_1,C_2,\ldots,C_n$是独立的，其含义是$Jacobi$行列式
+    \[
+        \frac{D[\varphi,\varphi',\ldots,\varphi^{(n-1)}]}{D[C_1,C_2,\ldots,C_n]}
+        \overset{d}{=}
+        \begin{vmatrix}
+        \partialD{\varphi}{1} & \partialD{\varphi}{2} & \cdots & \partialD{\varphi}{n} \\
+        \partialD{\varphi'}{1} & \partialD{\varphi'}{2} & \cdots & \partialD{\varphi'}{n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \partialD{\varphi^{(n-1)}}{1} & \partialD{\varphi^{(n-1)}}{2} & \cdots & \partialD{\varphi^{(n-1)}}{n} \\
+        \end{vmatrix}
+    \]
+    不等于0，其中
+    \[
+        \begin{cases}
+        \varphi =\varphi(x,C_1,C_2,\ldots,C_n), & \\
+        \varphi' =\varphi'(x,C_1,C_2,\ldots,C_n), & \\
+        \cdots & \\
+        \varphi^{(n-1)}=\varphi^{(n-1)}(x,C_1,C_2,\ldots,C_n). &
+        \end{cases}
+    \]
+    如果微分方程\eqref{eq:ode}的解$y=\varphi(x)$不包含任意常数，则称它为\emphz{特解}。显然，当任意常数一旦确定之后，通解也就变成了特解。
 \end{defn}
 
 \begin{example}
-求双参数函数族
-\begin{equation}\label{eq:exa:doublepara}
-y\,=\,C_1e^x\cos x+C_2e^x\sin x
-\end{equation}
-所满足的微分方程。
+    求双参数函数族
+    \begin{equation}\label{eq:exa:doublepara}
+        y=C_1e^x\cos x+C_2e^x\sin x
+    \end{equation}
+    所满足的微分方程。
 \end{example}
+
 事实上，在公式\eqref{eq:exa:doublepara}中对$x$先后求导两次，得出
 \begin{align}
-y' &= C_1e^x(\cos x-\sin x)+C_2e^x(\sin x+\cos x)\label{eq:exa:doublepara:1} \\
-y''&= C_1e^x(-2\sin x)+C_2e^x(2\cos x)\label{eq:exa:doublepara:2}
+    y' &= C_1e^x(\cos x-\sin x)+C_2e^x(\sin x+\cos x)\label{eq:exa:doublepara:1} \\
+    y''&= C_1e^x(-2\sin x)+C_2e^x(2\cos x)\label{eq:exa:doublepara:2}
 \end{align}
 从\eqref{eq:exa:doublepara:1}和\eqref{eq:exa:doublepara:2}两式可知$Jacobi$行列式
-$$
-\frac{D\left[y,y'\right]}{D\left[C_1,C_2\right]}\,=\,
-\left|
-\begin{matrix}
-e^x\cos x & e^x\sin x \\
-e^x(\cos x-\sin x) & e^x(\sin x+\cos x)
-\end{matrix}
-\right|
-\,=\,e^{2x}\,\neq\,0.
-$$
+\[
+    \frac{D[y,y']}{D[C_1,C_2]}
+    =
+    \begin{vmatrix}
+    e^x\cos x & e^x\sin x \\
+    e^x(\cos x-\sin x) & e^x(\sin x+\cos x)
+    \end{vmatrix}
+    =
+    e^{2x}\neq 0.
+\]
 这说明\eqref{eq:exa:doublepara}中南包含的两个任意常数$C_1$和$C_2$是独立的。据此，可从\eqref{eq:exa:doublepara}和\eqref{eq:exa:doublepara:1}两式解出$C_1$和$C_2$（作为$x,y$和$y'$的函数），即
-\begin{equation*}
+\[
     \begin{cases}
-        \quad C_1\,=\,e^{-x}[y(\sin x+\cos x)-y'\sin x], \\
-        \quad C_2\,=\,e^{-x}[y(\sin x-\cos x)+y'\cos x].        
+        C_1=e^{-x}[y(\sin x+\cos x)-y'\sin x], \\
+        C_2=e^{-x}[y(\sin x-\cos x)+y'\cos x].
     \end{cases}
-\end{equation*}
+\]
 然后把它们代入\eqref{eq:exa:doublepara:2}式，就得到一个二阶微分方程
 \begin{equation}\label{eq:exa:doublepara:sol}
-y''-2y'+2y\,=\,0,
+    y''-2y'+2y=0,
 \end{equation}
-它就是函数族\eqref{eq:exa:doublepara}所满足的微分方程；而且\eqref{eq:exa:doublepara}是微分方程\eqref{eq:exa:doublepara:sol}的通解。\hfill$\square$
+它就是函数族\eqref{eq:exa:doublepara}所满足的微分方程；而且\eqref{eq:exa:doublepara}是微分方程\eqref{eq:exa:doublepara:sol}的通解。
+
+
+
 \subsection{微分方程及其解的几何解释}
 考虑一阶微分方程
 \begin{equation}\label{eq:firstode}
-\frac{\D y}{\D x}\,=\,f(x,y),
+    \frac{\D y}{\D x}=f(x,y),
 \end{equation}
 其中$f(x,y)$是平面区域$G$内的连续函数，假设
 \begin{equation}\label{eq:ode:soldom}
-y\,=\,\varphi(x)\quad(x\in I)
+    y=\varphi(x)\quad(x\in I)
 \end{equation}
-是方程的解（其中$I$是解的存在区间）。则$y=\varphi(x)$在$(x,y)$平面上的图形是一条光滑的曲线$\Gamma$，称它为微分方程\eqref{eq:firstode}的{\heiti 积分曲线}。\par
-在区域$G$内每一点$P(x,y)$，我们可以作一个以$f(P)$为斜率的（短小）直线段$l(P)$，以标明积分曲线（如果存在的话）在该店的切线方向，称$l(P)$为微分方程\eqref{eq:firstode}在$P$点的{\heiti 线素}；而称区域$G$联同上述全体线素为微分方程\eqref{eq:firstode}的{\heiti 线素场}或{\heiti 方向场}。\par
-在构造方程\eqref{eq:firstode}的线素场时，通畅利用由关系式$f(x,y)=k$确定的曲线$L_k$，称它为线素场的{\heiti 等斜线}。\par
+是方程的解（其中$I$是解的存在区间）。则$y=\varphi(x)$在$(x,y)$平面上的图形是一条光滑的曲线$\Gamma$，称它为微分方程\eqref{eq:firstode}的\emphz{积分曲线}。
+
+在区域$G$内每一点$P(x,y)$，我们可以作一个以$f(P)$为斜率的（短小）直线段$l(P)$，以标明积分曲线（如果存在的话）在该店的切线方向，称$l(P)$为微分方程\eqref{eq:firstode}在$P$点的\emphz{线素}；而称区域$G$联同上述全体线素为微分方程\eqref{eq:firstode}的\emphz{线素场}或\emphz{方向场}。
+
+在构造方程\eqref{eq:firstode}的线素场时，通畅利用由关系式$f(x,y)=k$确定的曲线$L_k$，称它为线素场的\emphz{等斜线}。
+
 一阶微分方程\eqref{eq:firstode}在许多情况取如下形式
 \begin{equation}\label{eq:equform}
-\frac{\D y}{\D x}\,=\,-\dfrac{P(x,y)}{Q(x,y)},
+    \frac{\D y}{\D x}=-\dfrac{P(x,y)}{Q(x,y)},
 \end{equation}
 其中$P(x,y)$和$Q(x,y)$是区域$G$内的连续函数。我们可以写成下面（关于$x$和$y$）的对称形式：
 \begin{equation}\label{eq:equform2}
-P(x,y)\D x+Q(x,y)\D y\,=\,0.
-\end{equation}\par
-当$P(x_0,y_0)=Q(x_0,y_0)=0$时，方程\eqref{eq:equform}在$(x_0,y_0)$点是不定式，因此线素场在$(x_0,y_0)$点没有意义。我们称这样的点$(x_0,y_0)$为相应微分方程的{\heiti 奇异点}。
+    P(x,y)\D x+Q(x,y)\D y=0.
+\end{equation}
+
+当$P(x_0,y_0)=Q(x_0,y_0)=0$时，方程\eqref{eq:equform}在$(x_0,y_0)$点是不定式，因此线素场在$(x_0,y_0)$点没有意义。我们称这样的点$(x_0,y_0)$为相应微分方程的\emphz{奇异点}。
