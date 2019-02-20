@@ -2,20 +2,20 @@
 \subsection{恰当方程}
 考虑对称形式的一阶微分方程
 \begin{equation}\label{eq:symform}
-P(x,y)\D x+Q(x,y)\D y=0.
+P(x,y)\,\D x+Q(x,y)\,\D y=0.
 \end{equation}
 
 如果存在一个可微函数$\varPhi(x,y)$，使得它的全微分为
 \[
-\D\varPhi(x,y)=P(x,y)\D x+Q(x,y)\D y,
+\D\varPhi(x,y)=P(x,y)\,\D x+Q(x,y)\,\D y,
 \]
 亦即它的偏导数为
 \begin{equation}\label{eq:phipartialdiff}
-\frac{\partial\varPhi}{\partial x}=P(x,y),\quad\frac{\partial\varPhi}{\partial y}=Q(x,y),
+\partialD{\varPhi}{x}=P(x,y),\quad\partialD{\varPhi}{y}=Q(x,y),
 \end{equation}
 则称\eqref{eq:symform}为\emphz{恰当方程}或\emphz{全微分方程}。因此，当方程\eqref{eq:symform}为恰当方程时，可将它改写为全微分的形式
 \begin{equation*}
-\D\varPhi(x,y)=P(x,y)\D x+Q(x,y)\D y=0.
+\D\varPhi(x,y)=P(x,y)\,\D x+Q(x,y)\,\D y=0.
 \end{equation*}
 从而
 \begin{equation*}
@@ -25,20 +25,19 @@ P(x,y)\D x+Q(x,y)\D y=0.
 \begin{theo}\label{theo:approeq}% [微分方程是恰当方程的充要条件]
 设函数$P(x,y)$和$Q(x,y)$在区域
 \[
-R:\quad\quad \alpha<x<\beta,\quad\gamma<y<\delta
+R:\qquad \alpha<x<\beta,\quad\gamma<y<\delta
 \]
-
-上连续，且有连续的一阶偏导数$\frac{\partial P}{\partial y}$与$\frac{\partial Q}{\partial x}$，则微分方程\eqref{eq:symform}是恰当方程的充要条件为恒等式
+上连续，且有连续的一阶偏导数$\tpartialD{P}{y}$与$\tpartialD{Q}{x}$，则微分方程\eqref{eq:symform}是恰当方程的充要条件为恒等式
 \begin{equation}\label{eq:approeq:ioi}
-\frac{\partial P}{\partial y}(x,y)\equiv\frac{\partial Q}{\partial x}(x,y)
+\partialD{P}{y}(x,y)\equiv\partialD{Q}{x}(x,y)
 \end{equation}
 在$R$内成立，并且当\eqref{eq:approeq:ioi}成立时，方程\eqref{eq:symform}的通积分为
 \[
-\int_{x_0}^xP(x,y)\D x+\int_{y_0}^yQ(x_0,y)\D y=C,
+\int_{x_0}^xP(x,y)\,\D x+\int_{y_0}^yQ(x_0,y)\,\D y=C,
 \]
 或者
 \[
-\int_{x_0}^xP(x,y_0)\D x+\int_{y_0}^yQ(x,y)\D y=C,
+\int_{x_0}^xP(x,y_0)\,\D x+\int_{y_0}^yQ(x,y)\,\D y=C,
 \]
 其中$(x_0,y_0)$是$R$中任意取定的一点。
 \end{theo}
@@ -46,31 +45,31 @@ R:\quad\quad \alpha<x<\beta,\quad\gamma<y<\delta
 \begin{proof}
 先证必要性。设方程\eqref{eq:symform}是恰当的，则存在函数$\varPhi(x,y)$，满足
 \begin{equation}\label{proof:theo:approeq:1}
-\frac{\partial\varPhi}{\partial x}=P(x,y),\quad\frac{\partial\varPhi}{\partial y}=Q(x,y).
+\partialD{\varPhi}{x}=P(x,y),\quad\partialD{\varPhi}{y}=Q(x,y).
 \end{equation}
 然后，我们在上面的第一式和第二式中，分别对$y$和$x$求偏导数，就可得到
 \begin{equation}\label{proof:theo:approeq:2}
-\frac{\partial P}{\partial y}=\frac{\partial^2\varPhi}{\partial y\partial x},\quad\frac{\partial Q}{\partial x}=\frac{\partial^2\varPhi}{\partial x\partial y}.
+\partialD{P}{y}=\frac{\partial^2\varPhi}{\partial y\partial x},\quad\partialD{Q}{x}=\frac{\partial^2\varPhi}{\partial x\partial y}.
 \end{equation}
-由$\frac{\partial P}{\partial y}$和$\frac{\partial Q}{\partial x}$的连续性假设推知混合偏导数$\frac{\partial^2\varPhi}{\partial y\partial x}$和$\frac{\partial^2\varPhi}{\partial x\partial y}$是连续的，从而$\frac{\partial^2\varPhi}{\partial y\partial x}\equiv\frac{\partial^2\varPhi}{\partial x\partial y}$，因此由\eqref{proof:theo:approeq:2}式推得\eqref{eq:approeq:ioi}式。
+由$\tfrac{\partial P}{\partial y}$和$\tfrac{\partial Q}{\partial x}$的连续性假设推知混合偏导数$\tfrac{\partial^2\varPhi}{\partial y\partial x}$和$\tfrac{\partial^2\varPhi}{\partial x\partial y}$是连续的，从而$\tfrac{\partial^2\varPhi}{\partial y\partial x}\equiv\frac{\partial^2\varPhi}{\partial x\partial y}$，因此由\eqref{proof:theo:approeq:2}式推得\eqref{eq:approeq:ioi}式。
 
 再证充分性。设$P(x,y)$和$Q(x,y)$满足条件\eqref{eq:approeq:ioi}，我们来构造可微函数$\varPhi(x,y)$，使\eqref{proof:theo:approeq:1}式成立。为了使\eqref{proof:theo:approeq:1}的第一式成立，我们可取
 % 从这里定义\partialD，以前内容等有时间（Never）再修改。
 \begin{equation}\label{proof:theo:approeq:3}
-\varPhi(x,y)=\int_{x_0}^{x}P(x,y)\D x+\psi(y),
+\varPhi(x,y)=\int_{x_0}^{x}P(x,y)\,\D x+\psi(y),
 \end{equation}
 其中函数$\psi(y)$待定，以使函数$\varPhi(x,y)$适合\eqref{proof:theo:approeq:1}的第二式。因此，由\eqref{proof:theo:approeq:3}得到
 \[
-\partialD{\varPhi}{y}=\partialD{}{y}\int_{x_0}^{x}P(x,y)\D x+\psi'(y)=\int_{x_0}^x\partialD{}{y}P(x,y)\D x+\psi'(y).
+\partialD{\varPhi}{y}=\partialD{}{y}\int_{x_0}^{x}P(x,y)\,\D x+\psi'(y)=\int_{x_0}^x\partialD{}{y}P(x,y)\,\D x+\psi'(y).
 \]
 再利用条件\eqref{eq:approeq:ioi}得到
 \[
-\partialD{\varPhi}{y}=\int_{x_0}^x\partialD{}{x}Q(x,y)\D x+\psi'(y)=Q(x,y)-Q(x_0,y)+\psi'(y).
+\partialD{\varPhi}{y}=\int_{x_0}^x\partialD{}{x}Q(x,y)\,\D x+\psi'(y)=Q(x,y)-Q(x_0,y)+\psi'(y).
 \]
 由此可见，为了使\eqref{proof:theo:approeq:1}的第二式成立，只要令$\psi'(y)=Q(x_0,y)$，亦即只要取\[
-\psi(y)=\int_{y_0}^yQ(x_0,y)\D y
+\psi(y)=\int_{y_0}^yQ(x_0,y)\,\D y
 \]即可。这样，就得到了满足\eqref{proof:theo:approeq:1}的一个函数\[
-\varPhi(x,y)=\int_{x_0}^xP(x,y)\D x+\int_{y_0}^yQ(x_0,y)\D y.
+\varPhi(x,y)=\int_{x_0}^xP(x,y)\,\D x+\int_{y_0}^yQ(x_0,y)\,\D y.
 \]
 
 如果在构造$\varPhi(x,y)$时，先考虑使\eqref{proof:theo:approeq:1}的第二式成立，则可用同样的方法，得到满足\eqref{proof:theo:approeq:1}的另一函数。因此，我们得到通积分如定理\ref{theo:approeq}。
@@ -81,15 +80,15 @@ R:\quad\quad \alpha<x<\beta,\quad\gamma<y<\delta
 P(x,y)=X(x)Y_1(y),\quad Q(x,y)=X_1(x)Y(y),
 \]变量分离的方程可以写成如下的形式：
 \begin{equation}\label{eq:varsep}
-X(x)Y_1(y)\D x+X_1(x)Y(y)\D y=0.
+X(x)Y_1(y)\,\D x+X_1(x)Y(y)\,\D y=0.
 \end{equation}
 
 如果以因子$X_1(x)Y_1(y)$去除\eqref{eq:varsep}式的两侧，就得到\[
-\frac{X(x)}{X_1}\D x+\frac{Y(y)}{Y_1(y)}\D y=0.
+\frac{X(x)}{X_1}\,\D x+\frac{Y(y)}{Y_1(y)}\,\D y=0.
 \]
 此方程$x$与$y$互相分离，因此它的通积分为
 \begin{equation}\label{eq:varsep:res}
-\int\frac{X(x)}{X_1(x)}\D x+\int\frac{y(y)}{Y_1(y)}\D y=C.
+\int\frac{X(x)}{X_1(x)}\,\D x+\int\frac{y(y)}{Y_1(y)}\,\D y=C.
 \end{equation}
 变量分离的方程\eqref{eq:varsep}的通积分由\eqref{eq:varsep:res}给出（要进行必要的不定积分运算）；还要补上如下形式的特解（如果它们不在上述通积分之内的话）：
 \begin{equation*}
@@ -102,47 +101,47 @@ X(x)Y_1(y)\D x+X_1(x)Y(y)\D y=0.
 \subsection{一阶线性方程}
 本节讨论\emphz{一阶线性}方程
 \begin{equation}\label{eq:firstlinearode}
-\frac{\D y}{\D x}+p(x)y=q(x).
+\diff{y}{x}+p(x)y=q(x).
 \end{equation}
 其中函数$p(x)$和$q(x)$在区间$I=(a,b)$上连续。当$q(x)\equiv0$时方程\eqref{eq:firstlinearode}成为
 \begin{equation}\label{eq:firstlinearode:homo}
-\frac{\D y}{\D x}+p(x)y=0.
+\diff{y}{x}+p(x)y=0.
 \end{equation}
 当$q(x)$不恒等于零时，称方程\eqref{eq:firstlinearode}为\emphz{非齐次}线性方程；而称方程\eqref{eq:firstlinearode:homo}为（相应的）\emphz{齐次}线性方程。
 
 我们得到方程\eqref{eq:firstlinearode:homo}的解
 \begin{equation}\label{eq:firstlinearode:homo:sol}
-y=Ce^{-\int p(x)\D x}.
+y=Ce^{-\int p(x)\,\D x}.
 \end{equation}
 现在要求解非齐次线性方程\eqref{eq:firstlinearode}。我们可把它改写为如下的对称形式：
 \begin{equation}\label{eq:firstlinearode:sol}
-\D y+p(x)y\D x=q(x)\D x.
+\D y+p(x)y\,\D x=q(x)\,\D x.
 \end{equation}
-一般而言，\eqref{eq:firstlinearode:sol}不是恰当方程，但以因子$\mu(x)=e^{\int p(x)\D x}$乘\eqref{eq:firstlinearode:sol}两侧（注意$\mu(x)\neq 0$），得到方程
+一般而言，\eqref{eq:firstlinearode:sol}不是恰当方程，但以因子$\mu(x)=e^{\int p(x)\,\D x}$乘\eqref{eq:firstlinearode:sol}两侧（注意$\mu(x)\neq 0$），得到方程
 \[
-e^{\int p(x)\D x}\D y+e^{\int p(x)\D x}p(x)y\D y=e^{\int p(x)\D x}q(x)\D x,
+e^{\int p(x)\,\D x}\,\D y+e^{\int p(x)\,\D x}p(x)y\,\D y=e^{\int p(x)\,\D x}q(x)\,\D x,
 \]
 它是全微分的形式
 \[
-\D(e^{\int p(x)\D x}y)=\D\int q(x)e^{\int p(x)\D x}\D x.
+\D(e^{\int p(x)\,\D x}y)=\D\int q(x)e^{\int p(x)\,\D x}\,\D x.
 \]
 由此可直接积分，得到通积分
 \[
-e^{\int p(x)\D x}y=\int q(x)e^{\int p(x)\D x}\D x+C.
+e^{\int p(x)\,\D x}y=\int q(x)e^{\int p(x)\,\D x}\,\D x+C.
 \]
 这样，就求出了方程\eqref{eq:firstlinearode:sol}的通解
 \begin{equation}\label{eq:firstlinearode:sol2}
-y=e^{-\int p(x)\D x}\Bigg(C+\int q(x)e^{\int p(x)\D x}\D x\Bigg),
+y=e^{-\int p(x)\,\D x}\Bigg(C+\int q(x)e^{\int p(x)\,\D x}\,\D x\Bigg),
 \end{equation}
 
 上述方法叫做\emphz{积分因子法}，这是因为我们用因子$\mu(x)$乘微分方程\eqref{eq:firstlinearode:sol}的两侧后，它就转化为一个全微分方程，从而获得它的积分。
 利用这种形式，容易得到初值问题
 \begin{equation}\label{eq:firstlinearode:initval}
-\frac{\D y}{\D x}+p(x)y=q(x),\quad y(x_0)=y_0
+\diff{y}{x}+p(x)y=q(x),\quad y(x_0)=y_0
 \end{equation}
 的解为
 \begin{equation}\label{eq:firstlinearode:initval:sol}
-y=y_0e^{-\int_{x_0}^xp(t)\D t}+\int_{x_0}^xq(s)e^{-\int_s^xp(t)\D t}\D s,
+y=y_0e^{-\int_{x_0}^xp(t)\,\D t}+\int_{x_0}^xq(s)e^{-\int_s^xp(t)\,\D t}\,\D s,
 \end{equation}
 其中$p(x)$和$q(x)$在区间$I$上连续。
 
@@ -161,24 +160,24 @@ P(tx,ty)=t^mP(x,y),\quad Q(tx,ty)=t^mQ(x,y),
 \end{equation*}
 因此，把变换代入方程\eqref{eq:symform}，就得
 \[
-x^m\left[P(1,u)+uQ(1,u)\right]\D x+x^{m+1}Q(1,u)\D u=0,
+x^m\left[P(1,u)+uQ(1,u)\right]\,\D x+x^{m+1}Q(1,u)\,\D u=0,
 \]
 这是一个变量分离的方程。
 
 \emphz{【附注】\quad}易知方程\eqref{eq:symform}为齐次方程的一个等价定义是，它可以化为如下的形式：
 \[
-\frac{\D y}{\D x}=\varPhi(\frac yx).
+\diff{y}{x}=\varPhi(\frac yx).
 \]
 
 \begin{example}
 讨论形如\[
-\frac{\D y}{\D x}=f\left(\frac{ax+by+c}{mx+ny+l}\right)
+\diff{y}{x}=f\left(\frac{ax+by+c}{mx+ny+l}\right)
 \]的方程的求解法。这里设$a,b,c,m,n,l$为常数。
 \end{example}
 
 注意，当$c=l=0$时，它是齐次方程，因此可用变化$u=\sfrac{y}{x}$求解。当$c$和$l$不全为零时，可分如下两种情形讨论：
 
-(1)\quad $\Delta=an-bm\neq 0.$
+(1)\quad $\,\Delta=an-bm\neq 0.$
 
 此时可选常数$\alpha$和$\beta$，使得
 \[
@@ -198,7 +197,7 @@ x=\xi+\alpha,\quad y=\eta+\beta,
 \]
 这已是齐次方程。因此，只要令$u=\sfrac{\eta}{\xi}$，即可把它化成变量分离的方程。
 
-(2)\quad $\Delta=an-bm=0.$
+(2)\quad $\,\Delta=an-bm=0.$
 
 此时有$m/a=n/b=\lambda$。因此，原方程化为
 \[
@@ -256,7 +255,7 @@ x=\xi+\alpha,\quad y=\eta+\beta,
 \subsection{积分因子法}
 对于一般的方程\eqref{eq:symform}，设法寻找一个可微的非零函数$\mu=\mu(x,y)$，舍得用它乘方程\eqref{eq:symform}后，所得方程
 \begin{equation}\label{eq:intfactormethod:1}
-\mu(x,y)P(x,y)\D x+\mu(x,y)Q(x,y)\D y=0
+\mu(x,y)P(x,y)\,\D x+\mu(x,y)Q(x,y)\,\D y=0
 \end{equation}
 成为恰当方程，亦即
 \begin{equation}\label{eq:intfactormethod:2}
@@ -289,7 +288,7 @@ Q\diff{\mu}{x}=\left(\partialD{P}{y}-\partialD{Q}{x}\right)\mu,
 \]
 由此得到
 \begin{equation}\label{eq:intfactormethod:6}
-\mu(x)=e^{\int G(x)\D x},
+\mu(x)=e^{\int G(x)\,\D x},
 \end{equation}
 容易验证它就是\eqref{eq:symform}的一个积分因子。
 \begin{theo}\label{theo:intfactormethod:1}
@@ -298,7 +297,7 @@ Q\diff{\mu}{x}=\left(\partialD{P}{y}-\partialD{Q}{x}\right)\mu,
 \begin{theo}\label{theo:intfactormethod:2}
 若$\mu=\mu(x,y)$是方程\eqref{eq:symform}的一个积分因子，使得
 \[
-\mu P(x,y)\D x+\mu Q(x,y)\D y=\D\varPhi(x,y),
+\mu P(x,y)\,\D x+\mu Q(x,y)\,\D y=\D\varPhi(x,y),
 \]
 则$\mu(x,y)g(\varPhi(x,y))$也是\eqref{eq:symform}的一个积分因子，其中$g(\cdot)$是任意可微的（非零）函数。
 \end{theo}
@@ -315,12 +314,12 @@ Q\diff{\mu}{x}=\left(\partialD{P}{y}-\partialD{Q}{x}\right)\mu,
 \begin{equation}\label{eq:isotrajectory:2}
 \varPsi(x,y,K)=0,
 \end{equation}
-其中$K$为参数，使得族\eqref{eq:isotrajectory:2}中的任一条曲线与族\eqref{eq:isotrajectory:1}中的每一条曲线相交成定角$\alpha$（$-\frac{\pi}{2}<\alpha\leq\frac{\pi}{2}$，以逆时针方向为正）。称这样的曲线族\eqref{eq:isotrajectory:2}为已知曲线族\eqref{eq:isotrajectory:1}的\emphz{等角轨线族}。特别，当$\alpha=\frac{\pi}{2}$时，称曲线族\eqref{eq:isotrajectory:2}为\eqref{eq:isotrajectory:1}的正交轨线族。
+其中$K$为参数，使得族\eqref{eq:isotrajectory:2}中的任一条曲线与族\eqref{eq:isotrajectory:1}中的每一条曲线相交成定角$\alpha$（$-\tfrac{\pi}{2}<\alpha\leq\frac{\pi}{2}$，以逆时针方向为正）。称这样的曲线族\eqref{eq:isotrajectory:2}为已知曲线族\eqref{eq:isotrajectory:1}的\emphz{等角轨线族}。特别，当$\alpha=\tfrac{\pi}{2}$时，称曲线族\eqref{eq:isotrajectory:2}为\eqref{eq:isotrajectory:1}的正交轨线族。
 \end{example}
 
 假设$\varPhi_C'\neq 0$，则可由联立方程
 \begin{equation}\label{eq:isotrajectory:3}
-\varPhi(x,y,C)=0,\quad \varPhi_x'(x,y,C)\D x+\varPhi_y'(x,y,C)\D y=0
+\varPhi(x,y,C)=0,\quad \varPhi_x'(x,y,C)\,\D x+\varPhi_y'(x,y,C)\,\D y=0
 \end{equation}
 消去$C$，得到曲线族\eqref{eq:isotrajectory:1}所满足的微分方程
 \begin{equation}\label{eq:isotrajectory:4}
@@ -332,7 +331,7 @@ H(x,y)=-\frac{\varPhi_x'(x,y,C(x,y))}{\varPhi_y'(x,y,C(x,y))},
 \]
 这里$C=C(x,y)$是由$\varPhi(x,y,C)=0$决定的函数。
 
-如果我们把方程\eqref{eq:isotrajectory:4}在点$(x,y)$的线素斜率记为$y_1'$，而把与它相交成$\alpha$角的线素斜率记为$y'$。则当$\alpha\neq\frac{\pi}{2}$时，有
+如果我们把方程\eqref{eq:isotrajectory:4}在点$(x,y)$的线素斜率记为$y_1'$，而把与它相交成$\alpha$角的线素斜率记为$y'$。则当$\alpha\neq\tfrac{\pi}{2}$时，有
 \[
 \tan\alpha=\frac{y'-y_1'}{1+y'y_1'},
 \]
@@ -349,9 +348,9 @@ y_1'=\frac{y'-\tan\alpha}{y'\tan\alpha+1};
 \diff{y}{x}=\frac{H(x,y)+\tan\alpha}{1-H(x,y)\tan\alpha}
 \end{equation}
 
-而当$\alpha=\frac{\pi}{2}$时，就有
+而当$\alpha=\tfrac{\pi}{2}$时，就有
 \[
-y'=-\frac{1}{y_1'},
+y'=-\tfrac{1}{y_1'},
 \]
 亦即所求正交轨线的微分方程为
 \begin{equation}\label{eq:isotrajectory:6}
