@@ -1,6 +1,6 @@
 all:
 	xelatex note
 	xelatex note
-	rm *.aux *.log *.thm *.toc
+	rm *.aux *.log *.synctex *.thm *.toc
 clean:
-	rm *.aux *.log *.thm *.toc	
+	rm *.aux *.log *.synctex *.thm *.toc
